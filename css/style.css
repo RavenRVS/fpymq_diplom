@@ -1,11 +1,30 @@
+@font-face {
+    font-family: "Open Sans";
+    src: local("Open Sans Regular"), url("../fonts/OpenSans-Regular.woff")  format("woff"), url("../fonts/OpenSans-Regular.ttf")  format("ttf"), url("../fonts/OpenSans-Regular.woff2")  format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: local("Open Sans Bold"), url("../fonts/OpenSans-Bold.woff") format("woff"), url("../fonts/OpenSans-Bold.ttf") format("ttf"), url("../fonts/OpenSans-Bold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
     font-family: "Open Sans", sans-serif;
+    font-weight: normal;
+    font-style: normal;
     margin: 0;
 }
 
 .header {
     font-family: "Open Sans", sans-serif;
-    height: 450px;
+    font-weight: normal;
+    font-style: normal;
     width: 100%;
     background-image: url("../images/banner-bg.jpg");
     background-repeat: no-repeat;
@@ -20,10 +39,9 @@ body {
 .header:after {
     content: "";
     width: 100%;
-    height: 450px;
+    height: 100%;
     background-color: #000000;
     opacity: 0.6;
-    
     position: absolute;
     left: 0;
     top: 0;
@@ -31,18 +49,17 @@ body {
   }
 
 .menu {
-    height: 100px;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 26px 14px;
 }
 
 .menu__logo {
     width: 179px;
-    margin-left: 14px;
 }
 
 .menu__logo-link {
@@ -51,10 +68,9 @@ body {
 
 .main-menu__list {
     display: flex;
+    margin: 0;
     gap: 30px;
-    margin-right: 14px;
     list-style-type: none;
-    
 }
 
 .menu__link {
@@ -69,16 +85,18 @@ body {
 }
 
 .header__intro {
-    height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 75px 0 125px 0;
 }
 
 .header__intro-title {
-    height: 50%;
-    max-width: 750px;
+    max-width: 700px;
     margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    font-style: normal;
     text-align: center;
     line-height: 75px;
     font-size: 45px;
@@ -87,12 +105,21 @@ body {
 }
 
 .trends__title-container {
-    height: 65px;
+    min-height: 65px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 55px;
     gap: 14px;
+}
+
+.title {
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    margin: 0;
+    font-size: 20px;
+    color: #0f0d0e;
 }
 
 .title-text {
@@ -103,35 +130,40 @@ body {
     margin: 0;
 }
 
+.title-text:after {
+    content: "";
+    background-color: rgba(181, 159, 91, 0.6);
+    height: 3px;
+    width: 67px;
+    display: block;
+    margin: 14px auto;
+}
+
 .trends__title-text {
     font-size: 20px;
     text-align: center;
     line-height: 20px;
 }
 
-.title-shape {
-    width: 66px;
-    height: 3px;
-    background-color: #b59f5b;
-    opacity: 0.4;
-    margin-bottom: 8px;
-}
-
 .trends-container {
-    height: 320px;
+    min-height: 320px;
     display: flex;
     justify-content: space-between;
     text-transform: uppercase;
     font-weight: bold;
     gap: 4px;
-
 }
+
 .trends-box {
+    display: flex;
+    align-items: end;
+    padding-bottom: 16px;
     text-decoration: none;
     width: 25%;
     background-color: #0f0d0e;
     position: relative;
     z-index: 1;
+    background-size: cover;
 }
 
 .trends-box::after {
@@ -140,7 +172,6 @@ body {
     height: 100%;
     background-color: #000000;
     opacity: 0.6;
-    
     position: absolute;
     left: 0;
     top: 0;
@@ -149,6 +180,7 @@ body {
 
 .trends-box-1 {
     background-image: url("../images/trend1.jpg");
+
 }
 
 .trends-box-2 {
@@ -164,12 +196,9 @@ body {
 }
 
 .trends-box__name {
-    position: absolute;
-    border: 4px solid rgba(181, 159, 91, 0.6);
-    bottom: 15px;
-    left: 0;
+    border: 3px solid rgba(181, 159, 91, 0.6);
     margin: 0 18px;
-    padding: 34px;
+    padding: 34px ;
 }
 
 .category-list {
@@ -177,8 +206,7 @@ body {
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
-    margin-top: 0;
-    margin-bottom: 10px;
+    margin: 0;
     gap: 18px;
     text-transform: uppercase;
     font-weight: bold;
@@ -194,6 +222,10 @@ body {
     text-decoration: underline;
 }
 
+.trends-box__title {
+    margin: 0;
+}
+
 .title-link {
     font-size: 20px;
     color: #ffffff;
@@ -207,23 +239,21 @@ body {
     color: #b59f5b;
 }
 
-.main {
+.content-conteiner  {
     display: flex;
     flex-direction: column;
-    gap: 64px;
     align-items: center;
 }
 
-.main-content-conteiner {
+.nested-container {
     width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 63px;
+    padding: 64px 15px;
     display: flex;
 }
 
-.posts-list {
-    margin-left: 14px;
+.main {
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -264,6 +294,7 @@ body {
 .post__author {
     color: #000000;
     font-weight: bold;
+    font-size: 12px;
 }
 
 .post__text {
@@ -273,8 +304,8 @@ body {
 }
 
 .side-bar {
-    width: 270px;
-    margin-right: 14px;
+    width: 272px;
+    padding-left: 28px;
     display: flex;
     flex-direction: column;
     gap: 60px;
@@ -297,41 +328,49 @@ body {
     font-size: 14px;
 }
 
-.latest-posts-list {
+.latest-posts {
     display: flex;
     flex-direction: column;
-    list-style: none;
     padding: 0;
     margin-bottom: 0;
     gap: 22px;
 }
 
 .latest-post {
-    height: 70px;
+    min-height: 70px;
     display: flex;
 
 }
 
 .latest-post__picture {
     width: 70px;
+    height: 70px;
 }
 
 .latest-post__frame {
     display: flex;
     flex-direction: column;
     padding-left: 19px;
-    gap: 11px;
+    gap: 4px;
 }
 
 .latest-post__date{
     color: #888888;
     font-size: 12px;
     margin-right: 15px;
+    line-height: 12px;
+}
+
+.latest-post__title {
+    color: #000000;
+    font-size: 14px;
+    line-height: 18px;
 }
 
 .latest-post-title-link {
     color: #000000;
     font-size: 14px;
+    line-height: 18px;
 }
 
 .search {
@@ -378,7 +417,7 @@ body {
 .subscribe-form {
     display: flex;
     flex-direction: column;
-    margin-top: 23px;
+    margin-top: 15px;
     gap: 18px;
 }
 
@@ -426,12 +465,12 @@ body {
     list-style: none;
     padding: 0;
     gap: 6px;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .tag {
     border: 3px solid #eeeeee;
-    padding: 7px 14px;
+    padding: 4px 14px;
     font-family: "Open Sans", sans-serif;
     text-transform: uppercase;
     font-size: 12px;
@@ -450,12 +489,13 @@ body {
     list-style: none;
     font-family: "Open Sans", sans-serif;
     padding: 0;
+    margin: 0;
 }
 
 .category {
     box-sizing: border-box;
-    height: 48px;
-    line-height: 48px;
+    min-height: 46px;
+    line-height: 42px;
     border-bottom: 1px solid #eeeeee;
     padding-left: 2px;
 }
@@ -483,9 +523,14 @@ body {
     margin-bottom: 64px;
 }
 
-.shop-list {
+.shop__title-text {
+ font-size: 20px;
+}
+
+.shop-cards {
     display: flex;
-    padding: 0 15px;
+    flex-direction: row;
+    padding: 15px;
     gap: 64px;
 }
 
@@ -501,7 +546,7 @@ body {
 
 .card-border {
     position: absolute;
-    height: 266px;
+    min-height: 266px;
     width: 348px;
     box-sizing: border-box;
     border: 3px solid rgba(181, 159, 91, 0.6);
@@ -574,11 +619,20 @@ body {
 }
 
 .footer {
-    height: 212px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+}
+
+.socials-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1170px;
+    
+    padding: 31px 0;
+    background-color: #f4f7f6;
 }
 
 .socials-group {
@@ -586,7 +640,7 @@ body {
     list-style: none;
     gap: 25px;
     padding: 0;
-    margin-top: 30px;
+    margin: 0;
 }
 
 .link-picture {
@@ -600,4 +654,5 @@ body {
     color: #999999;
     text-align: center;
     padding-bottom: 44px;
+    margin-top: 74px;
 }
