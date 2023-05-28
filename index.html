@@ -14,6 +14,9 @@
                 <img src="svg/noemi-logo.svg" class="menu__logo" alt="Логотип">
             </a> 
             <nav class="main-menu">
+                <button class="menu__button">
+                    <span class="menu__button-label">открыть меню</span>
+                </button>
                 <ul class="main-menu__list">
                     <li class="menu__item">
                         <a href="#" class="menu__link">главная</a>
@@ -239,7 +242,7 @@
                     <div class="title-frame latest-posts__title-frame">
                         <h2 class="title-text latest-posts__title-text">новые посты</h2>
                     </div>
-                    <div class="latest-posts">
+                    <div class="latest-posts-list">
                         <article class="latest-post">
                             <div class="latest-post__picture-box">
                                 <img src="images/2.jpg" class="latest-post__picture" alt="Еда в тарелке на столе">
@@ -386,10 +389,13 @@
             </div>
             <div class="shop-cards">
                 <article class="shop-card">
-                    <div class="shop-card__picture-box">
-                        <img src="images/shop-item-desk1.jpg" class="shop-card__picture" alt="Подушка с модным принтом">
-                    </div>
-                    <div class="shop-card__frame">
+                    <picture class="shop-card__preview">
+                        <source media="(max-width: 640px)" srcset="images/shop-item-mobile1.jpg">
+                        <source media="(min-width: 641px) and (max-width: 1199px)" srcset="images/shop-item-tablet1.jpg">
+                        <source media="(min-width: 1200px)" srcset="images/shop-item-desk1.jpg">
+                        <img src="images/shop-item-mobile1.jpg" class="shop-card__picture" alt="Подушка с модным принтом">
+                    </picture>
+                    <div class="shop-card__body">
                         <h3 class="title shop-card__title">
                             <a  href="#" class="title-link shop-card__title-link">Подушки на диван</a>
                         </h3>
@@ -406,10 +412,13 @@
                     </div>
                 </article>
                 <article class="shop-card">
-                    <div class="shop-card__picture-box">
-                        <img src="images/shop-item-desk2.jpg" class="shop-card__picture" alt="Сшитая игрушка зайчик">
-                    </div>
-                    <div class="shop-card__frame">
+                    <picture class="shop-card__preview">
+                        <source media="(max-width: 640px)" srcset="images/shop-item-mobile2.jpg">
+                        <source media="(min-width: 641px) and (max-width: 1199px)" srcset="images/shop-item-tablet2.jpg">
+                        <source media="(min-width: 1200px)" srcset="images/shop-item-desk2.jpg">
+                        <img src="images/shop-item-mobile2.jpg" class="shop-card__picture" alt="Сшитая игрушка зайчик">
+                    </picture>
+                    <div class="shop-card__body">
                         <h3 class="title shop-card__title">
                             <a  href="#" class="title-link shop-card__title-link">Кукла "зайчик"</a>
                         </h3>
@@ -426,10 +435,15 @@
                     </div>
                 </article>
                 <article class="shop-card">
-                    <div class="shop-card__picture-box">
-                        <img src="images/shop-item-desk3.jpg" class="shop-card__picture" alt="Шестиугольная рамка на столе">
+                    <div class="shop-card__preview">
+                        <picture>
+                            <source media="(max-width: 640px)" srcset="images/shop-item-mobile3.jpg">
+                            <source media="(min-width: 641px) and (max-width: 1199px)" srcset="images/shop-item-tablet3.jpg">
+                            <source media="(min-width: 1200px)" srcset="images/shop-item-desk3.jpg">
+                            <img src="images/shop-item-mobile3.jpg" class="shop-card__picture" alt="Шестиугольная рамка на столе">
+                        </picture>
                     </div>
-                    <div class="shop-card__frame">
+                    <div class="shop-card__body">
                         <h3 class="title shop-card__title">
                             <a  href="#" class="title-link shop-card__title-link">шестиугольная рамка</a>
                         </h3>
@@ -470,6 +484,48 @@
         </address>
         <div class="copyright-text">Copyright © 2009–2019 City Blog LLC.</div>
     </footer>
-
+    <div class="popup_container _hidden">
+        <div class="popup">
+            <a class="popup__close" href="#0">
+                <span class="close__button"></span>
+            </a>
+            <div class="title-frame popup__title-frame" href="#0">
+                <h2 class="title-text popup__title-text">Ваш фидбек</h2>
+            </div>
+            <form class="form__popup">
+                <div class="form__group">
+                    <label class="field-rate">
+                        <span class="field-label">Как часто вы заходите на сайт?</span>
+                        <select class="search-field popup_field">
+                            <option value="everyday" selected>Почти каждый день</option>
+                            <option value="fewdays">Раз в несколько дней</option>
+                            <option value="fewweeks">Раз в несколько недель</option>
+                            <option value="timeyear">Несколько раз в год</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <span class="field-label">Вы подписаны на e-mail рассылку?</span>
+                    <label class="checkbox-group" for="Yes">
+                        <input type="radio" class="checkbox" id="Yes" name="subscribe" value="subscribe-yes" checked>
+                        <span class="checkbox-text">Да</span>
+                    </label>
+                    <label class="checkbox-group" for="No">
+                        <input type="radio" class="checkbox" id="No" name="subscribe" value="subscribe-no">
+                        <span class="checkbox-text">Нет</span>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="field-group">
+                        <span class="field-label">Расскажите, какой контент вы хотели бы видеть на нашем сайте?</span>
+                        <textarea class="search-field message" placeholder="Может, больше рецептов?"></textarea>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="subscribe-button send-button">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
